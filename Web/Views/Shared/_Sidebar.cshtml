@@ -1,0 +1,132 @@
+﻿@{
+    var currentController =
+        ViewContext.RouteData.Values["Controller"]?.ToString();
+}
+
+<aside class="sidebar d-flex flex-column">
+
+    <!-- Logo -->
+
+    <div class="border-bottom border-secondary p-3">
+
+        <div class="d-flex align-items-center">
+
+            <div class="bg-primary rounded-circle
+                        text-white fw-bold
+                        d-flex align-items-center
+                        justify-content-center"
+                 style="width:42px;height:42px;">
+
+                OS
+
+            </div>
+
+            <div class="ms-3">
+
+                <div class="text-white fw-bold">
+                    One Stack POS
+                </div>
+
+                <small class="text-secondary">
+                    MVP v1.0
+                </small>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- Menu -->
+
+    <nav class="nav flex-column py-3">
+
+        <a asp-controller="Dashboard"
+           asp-action="Index"
+           class="nav-link px-3 py-2 text-white @(currentController == "Dashboard" ? "bg-primary rounded" : "")">
+
+            <i class="bi bi-speedometer2 me-2"></i>
+            Dashboard
+
+        </a>
+
+        <a asp-controller="Products"
+           asp-action="Index"
+           class="nav-link px-3 py-2 text-white @(currentController == "Products" ? "bg-primary rounded" : "")">
+
+            <i class="bi bi-box-seam me-2"></i>
+            Products
+
+        </a>
+
+        <a asp-controller="Categories"
+           asp-action="Index"
+           class="nav-link px-3 py-2 text-white @(currentController == "Categories" ? "bg-primary rounded" : "")">
+
+            <i class="bi bi-tags me-2"></i>
+            Categories
+
+        </a>
+
+        <a asp-controller="Customers"
+           asp-action="Index"
+           class="nav-link px-3 py-2 text-white @(currentController == "Customers" ? "bg-primary rounded" : "")">
+
+            <i class="bi bi-people me-2"></i>
+            Customers
+
+        </a>
+
+        <a asp-controller="Suppliers"
+           asp-action="Index"
+           class="nav-link px-3 py-2 text-white @(currentController == "Suppliers" ? "bg-primary rounded" : "")">
+
+            <i class="bi bi-truck me-2"></i>
+            Suppliers
+
+        </a>
+
+        <a asp-controller="Sales"
+           asp-action="Index"
+           class="nav-link px-3 py-2 text-white @(currentController == "Sales" ? "bg-primary rounded" : "")">
+
+            <i class="bi bi-cart3 me-2"></i>
+            Sales
+
+        </a>
+
+        <a asp-controller="Inventory"
+           asp-action="Index"
+           class="nav-link px-3 py-2 text-white @(currentController == "Inventory" ? "bg-primary rounded" : "")">
+
+            <i class="bi bi-box-arrow-in-down me-2"></i>
+            Inventory
+
+        </a>
+
+        <a asp-controller="Reports"
+           asp-action="Index"
+           class="nav-link px-3 py-2 text-white @(currentController == "Reports" ? "bg-primary rounded" : "")">
+
+            <i class="bi bi-graph-up-arrow me-2"></i>
+            Reports
+
+        </a>
+
+    </nav>
+
+    <!-- Footer -->
+
+    <div class="mt-auto p-3 border-top border-secondary">
+
+        <a href="#"
+           class="btn btn-outline-danger w-100">
+
+            <i class="bi bi-box-arrow-right me-2"></i>
+            Logout
+
+        </a>
+
+    </div>
+
+</aside>

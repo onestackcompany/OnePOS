@@ -1,0 +1,213 @@
+﻿@{
+    ViewData["Title"] = "Create Product";
+    ViewData["PageTitle"] = "Create Product";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="card border-0 shadow-sm">
+
+    <div class="card-header bg-white">
+
+        <h5 class="mb-0">
+            Create Product
+        </h5>
+
+    </div>
+
+    <div class="card-body">
+
+        <form>
+
+            <div class="row">
+
+                <!-- LEFT -->
+
+                <div class="col-lg-6">
+
+                    <div class="mb-3">
+
+                        <label class="form-label">
+                            Product Code
+                        </label>
+
+                        <input type="text"
+                               class="form-control"
+                               placeholder="PRD001" />
+
+                    </div>
+
+                    <div class="mb-3">
+
+                        <label class="form-label">
+                            Product Name
+                        </label>
+
+                        <input type="text"
+                               class="form-control"
+                               placeholder="Chocolate Donut" />
+
+                    </div>
+
+                    <div class="mb-3">
+
+                        <label class="form-label">
+                            Category
+                        </label>
+
+                        <select class="form-select">
+
+                            <option>
+                                Select Category
+                            </option>
+
+                            <option>
+                                Donut
+                            </option>
+
+                            <option>
+                                Drink
+                            </option>
+
+                            <option>
+                                Snack
+                            </option>
+
+                        </select>
+
+                    </div>
+
+                    <div class="mb-3">
+
+                        <label class="form-label">
+                            Barcode
+                        </label>
+
+                        <input type="text"
+                               class="form-control"
+                               placeholder="899100001" />
+
+                    </div>
+
+                </div>
+
+                <!-- RIGHT -->
+
+                <div class="col-lg-6">
+
+                    <div class="mb-3">
+
+                        <label class="form-label">
+                            Cost Price
+                        </label>
+
+                        <div class="input-group">
+
+                            <span class="input-group-text">
+                                Rp
+                            </span>
+
+                            <input type="number"
+                                   class="form-control"
+                                   placeholder="8000" />
+
+                        </div>
+
+                    </div>
+
+                    <div class="mb-3">
+
+                        <label class="form-label">
+                            Selling Price
+                        </label>
+
+                        <div class="input-group">
+
+                            <span class="input-group-text">
+                                Rp
+                            </span>
+
+                            <input type="number"
+                                   class="form-control"
+                                   placeholder="12000" />
+
+                        </div>
+
+                    </div>
+
+                    <div class="mb-3">
+
+                        <label class="form-label">
+                            Initial Stock
+                        </label>
+
+                        <input type="number"
+                               class="form-control"
+                               placeholder="100" />
+
+                    </div>
+
+                    <div class="mb-3">
+
+                        <label class="form-label">
+                            Status
+                        </label>
+
+                        <select class="form-select">
+
+                            <option selected>
+                                Active
+                            </option>
+
+                            <option>
+                                Inactive
+                            </option>
+
+                        </select>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="mb-3">
+
+                <label class="form-label">
+                    Description
+                </label>
+
+                <textarea class="form-control"
+                          rows="4"
+                          placeholder="Product description..."></textarea>
+
+            </div>
+
+            <hr />
+
+            <div class="d-flex justify-content-end gap-2">
+
+                <a href="#"
+                   class="btn btn-secondary">
+
+                    <i class="bi bi-arrow-left me-1"></i>
+
+                    Cancel
+
+                </a>
+
+                <button type="submit"
+                        class="btn btn-primary">
+
+                    <i class="bi bi-check-circle me-1"></i>
+
+                    Save Product
+
+                </button>
+
+            </div>
+
+        </form>
+
+    </div>
+
+</div>

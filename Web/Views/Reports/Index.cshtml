@@ -1,0 +1,383 @@
+﻿@{
+    ViewData["Title"] = "Reports";
+    ViewData["PageTitle"] = "Reports";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="card border-0 shadow-sm mb-4">
+
+    <div class="card-header bg-white">
+
+        <h5 class="mb-0">
+            Report Filter
+        </h5>
+
+    </div>
+
+    <div class="card-body">
+
+        <div class="row g-3">
+
+            <div class="col-md-3">
+
+                <label class="form-label">
+                    Start Date
+                </label>
+
+                <input type="date"
+                       class="form-control">
+
+            </div>
+
+            <div class="col-md-3">
+
+                <label class="form-label">
+                    End Date
+                </label>
+
+                <input type="date"
+                       class="form-control">
+
+            </div>
+
+            <div class="col-md-3">
+
+                <label class="form-label">
+                    Report Type
+                </label>
+
+                <select class="form-select"
+                        id="reportType">
+
+                    <option value="sales">
+                        Sales Report
+                    </option>
+
+                    <option value="product">
+                        Product Report
+                    </option>
+
+                    <option value="customer">
+                        Customer Report
+                    </option>
+
+                    <option value="inventory">
+                        Inventory Report
+                    </option>
+
+                </select>
+
+            </div>
+
+            <div class="col-md-3 d-flex align-items-end">
+
+                <button class="btn btn-primary w-100">
+
+                    <i class="bi bi-search me-1"></i>
+
+                    Generate Report
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- SALES REPORT -->
+
+<div class="card border-0 shadow-sm report-section"
+     id="salesReport">
+
+    <div class="card-header bg-white">
+
+        <h5 class="mb-0">
+            Sales Report
+        </h5>
+
+    </div>
+
+    <div class="card-body">
+
+        <div class="table-responsive">
+
+            <table id="salesReportTable"
+                   class="table table-striped table-hover align-middle">
+
+                <thead>
+
+                    <tr>
+
+                        <th>Invoice</th>
+                        <th>Date</th>
+                        <th>Customer</th>
+                        <th>Payment</th>
+                        <th>Total</th>
+
+                    </tr>
+
+                </thead>
+
+                <tbody>
+
+                    <tr>
+                        <td>INV-001</td>
+                        <td>20-Jun-2026</td>
+                        <td>Walk In Customer</td>
+                        <td>Cash</td>
+                        <td>Rp 120.000</td>
+                    </tr>
+
+                    <tr>
+                        <td>INV-002</td>
+                        <td>20-Jun-2026</td>
+                        <td>Hendi</td>
+                        <td>QRIS</td>
+                        <td>Rp 350.000</td>
+                    </tr>
+
+                    <tr>
+                        <td>INV-003</td>
+                        <td>20-Jun-2026</td>
+                        <td>Dida</td>
+                        <td>Cash</td>
+                        <td>Rp 275.000</td>
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- PRODUCT REPORT -->
+
+<div class="card border-0 shadow-sm report-section d-none"
+     id="productReport">
+
+    <div class="card-header bg-white">
+
+        <h5 class="mb-0">
+            Product Sales Report
+        </h5>
+
+    </div>
+
+    <div class="card-body">
+
+        <table id="productReportTable"
+               class="table table-striped table-hover">
+
+            <thead>
+
+                <tr>
+
+                    <th>Product</th>
+                    <th>Category</th>
+                    <th>Qty Sold</th>
+                    <th>Revenue</th>
+
+                </tr>
+
+            </thead>
+
+            <tbody>
+
+                <tr>
+                    <td>Chocolate Donut</td>
+                    <td>Donut</td>
+                    <td>120</td>
+                    <td>Rp 1.440.000</td>
+                </tr>
+
+                <tr>
+                    <td>Ice Latte</td>
+                    <td>Drink</td>
+                    <td>98</td>
+                    <td>Rp 1.764.000</td>
+                </tr>
+
+                <tr>
+                    <td>Americano</td>
+                    <td>Drink</td>
+                    <td>75</td>
+                    <td>Rp 1.125.000</td>
+                </tr>
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+</div>
+
+<!-- CUSTOMER REPORT -->
+
+<div class="card border-0 shadow-sm report-section d-none"
+     id="customerReport">
+
+    <div class="card-header bg-white">
+
+        <h5 class="mb-0">
+            Customer Report
+        </h5>
+
+    </div>
+
+    <div class="card-body">
+
+        <table id="customerReportTable"
+               class="table table-striped table-hover">
+
+            <thead>
+
+                <tr>
+
+                    <th>Customer</th>
+                    <th>Member Type</th>
+                    <th>Total Transactions</th>
+                    <th>Total Spending</th>
+
+                </tr>
+
+            </thead>
+
+            <tbody>
+
+                <tr>
+                    <td>Hendi</td>
+                    <td>Gold</td>
+                    <td>55</td>
+                    <td>Rp 12.500.000</td>
+                </tr>
+
+                <tr>
+                    <td>Dida</td>
+                    <td>Silver</td>
+                    <td>40</td>
+                    <td>Rp 8.000.000</td>
+                </tr>
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+</div>
+
+<!-- INVENTORY REPORT -->
+
+<div class="card border-0 shadow-sm report-section d-none"
+     id="inventoryReport">
+
+    <div class="card-header bg-white">
+
+        <h5 class="mb-0">
+            Inventory Movement Report
+        </h5>
+
+    </div>
+
+    <div class="card-body">
+
+        <table id="inventoryReportTable"
+               class="table table-striped table-hover">
+
+            <thead>
+
+                <tr>
+
+                    <th>Product</th>
+                    <th>Stock In</th>
+                    <th>Stock Out</th>
+                    <th>Current Stock</th>
+
+                </tr>
+
+            </thead>
+
+            <tbody>
+
+                <tr>
+                    <td>Chocolate Donut</td>
+                    <td>200</td>
+                    <td>100</td>
+                    <td>100</td>
+                </tr>
+
+                <tr>
+                    <td>Ice Latte</td>
+                    <td>150</td>
+                    <td>100</td>
+                    <td>50</td>
+                </tr>
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+</div>
+
+@section Scripts
+{
+    <script>
+
+        new DataTable('#salesReportTable',
+        {
+            responsive: true,
+            layout:
+            {
+                topStart:
+                {
+                    buttons:
+                    [
+                        'copy',
+                        'excel',
+                        'pdf',
+                        'print'
+                    ]
+                }
+            }
+        });
+
+        new DataTable('#productReportTable');
+        new DataTable('#customerReportTable');
+        new DataTable('#inventoryReportTable');
+
+        $('#reportType').on('change', function ()
+        {
+            $('.report-section').addClass('d-none');
+
+            switch ($(this).val())
+            {
+                case 'sales':
+                    $('#salesReport').removeClass('d-none');
+                    break;
+
+                case 'product':
+                    $('#productReport').removeClass('d-none');
+                    break;
+
+                case 'customer':
+                    $('#customerReport').removeClass('d-none');
+                    break;
+
+                case 'inventory':
+                    $('#inventoryReport').removeClass('d-none');
+                    break;
+            }
+        });
+
+    </script>
+}

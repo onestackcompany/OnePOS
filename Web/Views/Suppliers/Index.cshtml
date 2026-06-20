@@ -1,0 +1,469 @@
+﻿@{
+    ViewData["Title"] = "Suppliers";
+    ViewData["PageTitle"] = "Supplier Management";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="card border-0 shadow-sm">
+
+    <div class="card-header bg-white">
+
+        <div class="d-flex justify-content-between align-items-center">
+
+            <h5 class="mb-0">
+                Supplier List
+            </h5>
+
+            <button class="btn btn-primary"
+                    data-bs-toggle="modal"
+                    data-bs-target="#addSupplierModal">
+
+                <i class="bi bi-plus-circle me-1"></i>
+
+                Add Supplier
+
+            </button>
+
+        </div>
+
+    </div>
+
+    <div class="card-body">
+
+        <div class="table-responsive">
+
+            <table id="suppliersTable"
+                   class="table table-striped table-hover align-middle">
+
+                <thead>
+
+                    <tr>
+
+                        <th>Code</th>
+                        <th>Supplier Name</th>
+                        <th>Phone</th>
+                        <th>Email</th>
+                        <th>City</th>
+                        <th>PIC</th>
+                        <th>Status</th>
+                        <th width="150">Action</th>
+
+                    </tr>
+
+                </thead>
+
+                <tbody>
+
+                    <tr>
+
+                        <td>SUP001</td>
+                        <td>PT Sumber Pangan</td>
+                        <td>0318888888</td>
+                        <td>sales@supplier.com</td>
+                        <td>Surabaya</td>
+                        <td>Andi</td>
+
+                        <td>
+                            <span class="badge bg-success">
+                                Active
+                            </span>
+                        </td>
+
+                        <td>
+
+                            <button class="btn btn-sm btn-warning"
+                                    data-bs-toggle="modal"
+                                    data-bs-target="#editSupplierModal">
+
+                                <i class="bi bi-pencil-square"></i>
+
+                            </button>
+
+                            <button class="btn btn-sm btn-danger"
+                                    data-bs-toggle="modal"
+                                    data-bs-target="#deactivateSupplierModal">
+
+                                <i class="bi bi-slash-circle"></i>
+
+                            </button>
+
+                        </td>
+
+                    </tr>
+
+                    <tr>
+
+                        <td>SUP002</td>
+                        <td>PT Beverage Nusantara</td>
+                        <td>0219999999</td>
+                        <td>marketing@beverage.com</td>
+                        <td>Jakarta</td>
+                        <td>Budi</td>
+
+                        <td>
+                            <span class="badge bg-success">
+                                Active
+                            </span>
+                        </td>
+
+                        <td>
+
+                            <button class="btn btn-sm btn-warning"
+                                    data-bs-toggle="modal"
+                                    data-bs-target="#editSupplierModal">
+
+                                <i class="bi bi-pencil-square"></i>
+
+                            </button>
+
+                            <button class="btn btn-sm btn-danger"
+                                    data-bs-toggle="modal"
+                                    data-bs-target="#deactivateSupplierModal">
+
+                                <i class="bi bi-slash-circle"></i>
+
+                            </button>
+
+                        </td>
+
+                    </tr>
+
+                    <tr>
+
+                        <td>SUP003</td>
+                        <td>PT Bakery Supply</td>
+                        <td>0343888888</td>
+                        <td>admin@bakerysupply.com</td>
+                        <td>Malang</td>
+                        <td>Siti</td>
+
+                        <td>
+                            <span class="badge bg-danger">
+                                Inactive
+                            </span>
+                        </td>
+
+                        <td>
+
+                            <button class="btn btn-sm btn-warning"
+                                    data-bs-toggle="modal"
+                                    data-bs-target="#editSupplierModal">
+
+                                <i class="bi bi-pencil-square"></i>
+
+                            </button>
+
+                            <button class="btn btn-sm btn-danger"
+                                    data-bs-toggle="modal"
+                                    data-bs-target="#deactivateSupplierModal">
+
+                                <i class="bi bi-slash-circle"></i>
+
+                            </button>
+
+                        </td>
+
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- ADD SUPPLIER -->
+
+<div class="modal fade"
+     id="addSupplierModal"
+     tabindex="-1">
+
+    <div class="modal-dialog modal-lg">
+
+        <div class="modal-content">
+
+            <div class="modal-header">
+
+                <h5 class="modal-title">
+                    Add Supplier
+                </h5>
+
+                <button class="btn-close"
+                        data-bs-dismiss="modal">
+                </button>
+
+            </div>
+
+            <div class="modal-body">
+
+                <div class="row">
+
+                    <div class="col-md-6 mb-3">
+
+                        <label class="form-label">
+                            Supplier Code
+                        </label>
+
+                        <input type="text"
+                               class="form-control"
+                               placeholder="SUP004">
+
+                    </div>
+
+                    <div class="col-md-6 mb-3">
+
+                        <label class="form-label">
+                            Supplier Name
+                        </label>
+
+                        <input type="text"
+                               class="form-control">
+
+                    </div>
+
+                </div>
+
+                <div class="row">
+
+                    <div class="col-md-6 mb-3">
+
+                        <label class="form-label">
+                            Phone
+                        </label>
+
+                        <input type="text"
+                               class="form-control">
+
+                    </div>
+
+                    <div class="col-md-6 mb-3">
+
+                        <label class="form-label">
+                            Email
+                        </label>
+
+                        <input type="email"
+                               class="form-control">
+
+                    </div>
+
+                </div>
+
+                <div class="mb-3">
+
+                    <label class="form-label">
+                        Address
+                    </label>
+
+                    <textarea class="form-control"
+                              rows="3"></textarea>
+
+                </div>
+
+                <div class="row">
+
+                    <div class="col-md-6">
+
+                        <label class="form-label">
+                            City
+                        </label>
+
+                        <input type="text"
+                               class="form-control">
+
+                    </div>
+
+                    <div class="col-md-6">
+
+                        <label class="form-label">
+                            PIC
+                        </label>
+
+                        <input type="text"
+                               class="form-control">
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="modal-footer">
+
+                <button class="btn btn-secondary"
+                        data-bs-dismiss="modal">
+
+                    Cancel
+
+                </button>
+
+                <button class="btn btn-primary">
+
+                    Save Supplier
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- EDIT SUPPLIER -->
+
+<div class="modal fade"
+     id="editSupplierModal"
+     tabindex="-1">
+
+    <div class="modal-dialog">
+
+        <div class="modal-content">
+
+            <div class="modal-header">
+
+                <h5 class="modal-title">
+                    Edit Supplier
+                </h5>
+
+                <button class="btn-close"
+                        data-bs-dismiss="modal">
+                </button>
+
+            </div>
+
+            <div class="modal-body">
+
+                <input class="form-control mb-3"
+                       value="PT Sumber Pangan">
+
+                <input class="form-control mb-3"
+                       value="0318888888">
+
+                <input class="form-control mb-3"
+                       value="sales@supplier.com">
+
+                <input class="form-control"
+                       value="Andi">
+
+            </div>
+
+            <div class="modal-footer">
+
+                <button class="btn btn-secondary"
+                        data-bs-dismiss="modal">
+
+                    Cancel
+
+                </button>
+
+                <button class="btn btn-primary">
+
+                    Update Supplier
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- DEACTIVATE SUPPLIER -->
+
+<div class="modal fade"
+     id="deactivateSupplierModal"
+     tabindex="-1">
+
+    <div class="modal-dialog">
+
+        <div class="modal-content">
+
+            <div class="modal-header">
+
+                <h5 class="modal-title">
+                    Deactivate Supplier
+                </h5>
+
+                <button class="btn-close"
+                        data-bs-dismiss="modal">
+                </button>
+
+            </div>
+
+            <div class="modal-body">
+
+                Supplier will be marked as inactive.
+
+            </div>
+
+            <div class="modal-footer">
+
+                <button class="btn btn-secondary"
+                        data-bs-dismiss="modal">
+
+                    Cancel
+
+                </button>
+
+                <button class="btn btn-danger">
+
+                    Deactivate
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+@section Scripts
+{
+    <script>
+
+        new DataTable('#suppliersTable',
+        {
+            responsive: true,
+
+            pageLength: 10,
+
+            order: [[1, 'asc']],
+
+            layout:
+            {
+                topStart:
+                {
+                    buttons:
+                    [
+                        {
+                            extend: 'copy',
+                            className: 'btn btn-secondary'
+                        },
+                        {
+                            extend: 'excel',
+                            className: 'btn btn-success'
+                        },
+                        {
+                            extend: 'pdf',
+                            className: 'btn btn-danger'
+                        },
+                        {
+                            extend: 'print',
+                            className: 'btn btn-primary'
+                        }
+                    ]
+                }
+            }
+        });
+
+    </script>
+}
