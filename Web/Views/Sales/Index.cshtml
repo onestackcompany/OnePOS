@@ -1,577 +1,215 @@
 ﻿@{
     ViewData["Title"] = "Sales";
-    ViewData["PageTitle"] = "Sales POS";
+    ViewData["PageTitle"] = "Sales Management";
     Layout = "~/Views/Shared/_Layout.cshtml";
+
+    var products = new[]
+    {
+        new { Id = 1, Name = "Chocolate Donut", Price = 12000 },
+        new { Id = 2, Name = "Ice Latte", Price = 18000 },
+        new { Id = 3, Name = "Americano", Price = 15000 },
+        new { Id = 4, Name = "Matcha Donut", Price = 13000 },
+        new { Id = 5, Name = "Vanilla Donut", Price = 12000 },
+        new { Id = 6, Name = "Cappuccino", Price = 22000 }
+    };
 }
 
 <div class="row">
-
-    <!-- PRODUCT SECTION -->
     <div class="col-lg-8">
-
-        <!-- FILTER -->
-        <div class="card border-0 shadow-sm mb-3">
-
-            <div class="card-body">
-
-                <div class="row g-3">
-
-                    <div class="col-md-5">
-
-                        <label class="form-label">
-                            Search Product
-                        </label>
-
-                        <input type="text"
-                               class="form-control"
-                               placeholder="Search product..." />
-
-                    </div>
-
-                    <div class="col-md-4">
-
-                        <label class="form-label">
-                            Barcode
-                        </label>
-
-                        <input type="text"
-                               class="form-control"
-                               placeholder="Scan barcode..." />
-
-                    </div>
-
-                    <div class="col-md-3">
-
-                        <label class="form-label">
-                            Category
-                        </label>
-
-                        <select class="form-select">
-
-                            <option>All</option>
-                            <option>Donut</option>
-                            <option>Drink</option>
-                            <option>Snack</option>
-
-                        </select>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-        </div>
-
-        <!-- PRODUCT GRID -->
         <div class="row g-3">
-
-            @for (int i = 1; i <= 12; i++)
+            @foreach (var item in products)
             {
                 <div class="col-md-4">
-
-                    <div class="card border-0 shadow-sm h-100">
-
+                    <div class="card shadow-sm">
                         <div class="card-body text-center">
-
-                            <i class="bi bi-box-seam text-primary"
-                               style="font-size:50px;">
-                            </i>
-
-                            <h6 class="mt-3">
-                                Product @i
-                            </h6>
-
-                            <div class="text-muted mb-3">
-                                Rp 25.000
-                            </div>
-
-                            <button class="btn btn-primary w-100">
-
-                                <i class="bi bi-plus-circle me-1"></i>
-
+                            <h6>@item.Name</h6>
+                            <div class="mb-2">Rp @item.Price.ToString("N0")</div>
+                            <button class="btn btn-primary w-100 btn-add-cart"
+                                    data-id="@item.Id"
+                                    data-name="@item.Name"
+                                    data-price="@item.Price">
                                 Add To Cart
-
                             </button>
-
                         </div>
-
                     </div>
-
                 </div>
             }
-
         </div>
-
     </div>
 
-    <!-- CART SECTION -->
     <div class="col-lg-4">
-
-        <div class="card border-0 shadow-sm">
-
-            <div class="card-header bg-white">
-
-                <h5 class="mb-0">
-                    Shopping Cart
-                </h5>
-
-            </div>
-
+        <div class="card shadow-sm">
+            <div class="card-header">Shopping Cart</div>
             <div class="card-body">
 
-                <!-- CUSTOMER -->
+               
 
-                <div class="mb-3">
-
-                    <label class="form-label">
-                        Customer
-                    </label>
-
-                    <select class="form-select">
-
-                        <option>
-                            Walk In Customer
-                        </option>
-
-                        <option>
-                            Hendi
-                        </option>
-
-                        <option>
-                            Dida
-                        </option>
-
-                    </select>
-
+                <div id="cartItems">
+                    <div class="text-center text-muted">Cart Empty</div>
                 </div>
 
-                <hr />
+                <hr>
 
-                <!-- CART ITEM 1 -->
-
-                <div class="mb-3">
-
-                    <div class="d-flex justify-content-between">
-
-                        <div>
-
-                            <strong>
-                                Chocolate Donut
-                            </strong>
-
-                            <div class="small text-muted">
-
-                                Rp 12.000
-
-                            </div>
-
-                        </div>
-
-                        <button class="btn btn-sm btn-outline-danger">
-
-                            <i class="bi bi-trash"></i>
-
-                        </button>
-
-                    </div>
-
-                    <div class="d-flex align-items-center mt-2">
-
-                        <button class="btn btn-outline-secondary btn-sm">
-                            -
-                        </button>
-
-                        <span class="mx-3">
-                            2
-                        </span>
-
-                        <button class="btn btn-outline-secondary btn-sm">
-                            +
-                        </button>
-
-                    </div>
-
+                <div class="d-flex justify-content-between">
+                    <span>Subtotal</span>
+                    <strong id="subtotal">Rp 0</strong>
                 </div>
 
-                <hr />
-
-                <!-- CART ITEM 2 -->
-
-                <div class="mb-3">
-
-                    <div class="d-flex justify-content-between">
-
-                        <div>
-
-                            <strong>
-                                Ice Latte
-                            </strong>
-
-                            <div class="small text-muted">
-
-                                Rp 18.000
-
-                            </div>
-
-                        </div>
-
-                        <button class="btn btn-sm btn-outline-danger">
-
-                            <i class="bi bi-trash"></i>
-
-                        </button>
-
-                    </div>
-
-                    <div class="d-flex align-items-center mt-2">
-
-                        <button class="btn btn-outline-secondary btn-sm">
-                            -
-                        </button>
-
-                        <span class="mx-3">
-                            1
-                        </span>
-
-                        <button class="btn btn-outline-secondary btn-sm">
-                            +
-                        </button>
-
-                    </div>
-
+                <div class="d-flex justify-content-between">
+                    <span>Tax 11%</span>
+                    <strong id="tax">Rp 0</strong>
                 </div>
 
-                <hr />
-
-                <!-- DISCOUNT -->
-
-                <div class="mb-3">
-
-                    <label class="form-label">
-                        Discount
-                    </label>
-
-                    <input type="number"
-                           class="form-control"
-                           value="0" />
-
+                <div class="d-flex justify-content-between mb-3">
+                    <span>Total</span>
+                    <strong id="grandTotal">Rp 0</strong>
                 </div>
+                <div class="text-center mb-1">Payment Method</div>
+                <select id="paymentMethod" class="form-select mb-3">
+                    <option>Cash</option>
+                    <option>QRIS</option>
+                    <option>Debit Card</option>
+                </select>
 
-                <!-- TAX -->
-
-                <div class="mb-3">
-
-                    <label class="form-label">
-                        Tax (%)
-                    </label>
-
-                    <input type="number"
-                           class="form-control"
-                           value="11" />
-
-                </div>
-
-                <hr />
-
-                <!-- SUMMARY -->
-
-                <div class="d-flex justify-content-between mb-2">
-
-                    <span>
-                        Subtotal
-                    </span>
-
-                    <strong>
-                        Rp 42.000
-                    </strong>
-
-                </div>
-
-                <div class="d-flex justify-content-between mb-2">
-
-                    <span>
-                        Discount
-                    </span>
-
-                    <strong>
-                        Rp 0
-                    </strong>
-
-                </div>
-
-                <div class="d-flex justify-content-between mb-2">
-
-                    <span>
-                        Tax
-                    </span>
-
-                    <strong>
-                        Rp 4.620
-                    </strong>
-
-                </div>
-
-                <hr />
-
-                <div class="d-flex justify-content-between mb-4">
-
-                    <h5>
-                        Total
-                    </h5>
-
-                    <h5 class="text-primary">
-
-                        Rp 46.620
-
-                    </h5>
-
-                </div>
-
-                <!-- PAYMENT -->
-
-                <div class="mb-3">
-
-                    <label class="form-label">
-                        Payment Method
-                    </label>
-
-                    <select class="form-select">
-
-                        <option>
-                            Cash
-                        </option>
-
-                        <option>
-                            QRIS
-                        </option>
-
-                        <option>
-                            Debit Card
-                        </option>
-
-                    </select>
-
-                </div>
-
-                <button class="btn btn-success btn-lg w-100"
-                        data-bs-toggle="modal"
-                        data-bs-target="#receiptModal">
-
-                    <i class="bi bi-cash-coin me-2"></i>
-
+                <button id="btnPayNow" class="btn btn-success w-100">
                     Pay Now
-
                 </button>
-
             </div>
-
         </div>
-
     </div>
-
 </div>
 
-<!-- RECEIPT MODAL -->
-
-<div class="modal fade"
-     id="receiptModal"
-     tabindex="-1">
-
-    <div class="modal-dialog modal-dialog-centered">
-
+<div class="modal fade" id="receiptModal" tabindex="-1">
+    <div class="modal-dialog">
         <div class="modal-content">
-
             <div class="modal-header">
-
-                <h5 class="modal-title">
-                    Receipt Preview
-                </h5>
-
-                <button type="button"
-                        class="btn-close"
-                        data-bs-dismiss="modal">
-                </button>
-
+                <h5>Receipt</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
             </div>
-
             <div class="modal-body">
-
-                <div id="receiptArea">
-
-                    <div class="text-center">
-
-                        <h4>
-                            One Stack POS
-                        </h4>
-
-                        <small>
-                            Pasuruan, East Java
-                        </small>
-
-                    </div>
-
-                    <hr />
-
-                    <div>
-                        <strong>Invoice :</strong>
-                        INV-20260620-001
-                    </div>
-
-                    <div>
-                        <strong>Date :</strong>
-                        20-Jun-2026
-                    </div>
-
-                    <div>
-                        <strong>Customer :</strong>
-                        Walk In Customer
-                    </div>
-
-                    <div>
-                        <strong>Payment :</strong>
-                        Cash
-                    </div>
-
-                    <hr />
-
-                    <table class="table table-sm">
-
-                        <thead>
-
-                            <tr>
-
-                                <th>Item</th>
-                                <th>Qty</th>
-                                <th class="text-end">
-                                    Total
-                                </th>
-
-                            </tr>
-
-                        </thead>
-
-                        <tbody>
-
-                            <tr>
-
-                                <td>
-                                    Chocolate Donut
-                                </td>
-
-                                <td>
-                                    2
-                                </td>
-
-                                <td class="text-end">
-                                    24.000
-                                </td>
-
-                            </tr>
-
-                            <tr>
-
-                                <td>
-                                    Ice Latte
-                                </td>
-
-                                <td>
-                                    1
-                                </td>
-
-                                <td class="text-end">
-                                    18.000
-                                </td>
-
-                            </tr>
-
-                        </tbody>
-
-                    </table>
-
-                    <hr />
-
-                    <div class="d-flex justify-content-between">
-
-                        <span>
-                            Subtotal
-                        </span>
-
-                        <strong>
-                            Rp 42.000
-                        </strong>
-
-                    </div>
-
-                    <div class="d-flex justify-content-between">
-
-                        <span>
-                            Tax
-                        </span>
-
-                        <strong>
-                            Rp 4.620
-                        </strong>
-
-                    </div>
-
-                    <hr />
-
-                    <div class="d-flex justify-content-between">
-
-                        <h5>
-                            Total
-                        </h5>
-
-                        <h5>
-                            Rp 46.620
-                        </h5>
-
-                    </div>
-
-                    <hr />
-
-                    <div class="text-center">
-
-                        Thank You For Your Purchase
-
-                    </div>
-
-                </div>
-
+                <div id="receiptContent"></div>
             </div>
-
-            <div class="modal-footer">
-
-                <button class="btn btn-secondary"
-                        data-bs-dismiss="modal">
-
-                    Close
-
-                </button>
-
-                <button class="btn btn-primary"
-                        onclick="window.print()">
-
-                    <i class="bi bi-printer me-1"></i>
-
-                    Print
-
-                </button>
-
-            </div>
-
         </div>
-
     </div>
-
 </div>
 
-@section Scripts
-{
+@section Scripts {
     <script>
+        let cart = JSON.parse(sessionStorage.getItem('pos_cart') || '[]');
 
-        console.log("Sales POS Loaded");
+        function rupiah(v){
+            return 'Rp ' + Number(v).toLocaleString('id-ID');
+        }
 
+        function save(){
+            sessionStorage.setItem('pos_cart', JSON.stringify(cart));
+        }
+
+        function render(){
+            let html='';
+            let subtotal=0;
+
+            cart.forEach(x=>{
+                subtotal += x.price * x.qty;
+
+                html += `
+                <div class="border-bottom mb-2 pb-2">
+                    <div class="d-flex justify-content-between">
+                        <strong>${x.name}</strong>
+                        <button class="btn btn-sm btn-danger remove" data-id="${x.id}">x</button>
+                    </div>
+                    <div>
+                        <button class="btn btn-sm btn-secondary minus" data-id="${x.id}">-</button>
+                        <span class="mx-2">${x.qty}</span>
+                        <button class="btn btn-sm btn-secondary plus" data-id="${x.id}">+</button>
+                    </div>
+                </div>`;
+            });
+
+            if(cart.length===0)
+                html='<div class="text-center text-muted">Cart Empty</div>';
+
+            $('#cartItems').html(html);
+
+            let tax=subtotal*0.11;
+            let total=subtotal+tax;
+
+            $('#subtotal').text(rupiah(subtotal));
+            $('#tax').text(rupiah(tax));
+            $('#grandTotal').text(rupiah(total));
+
+            save();
+        }
+
+        $(document).on('click','.btn-add-cart',function(){
+            let id=$(this).data('id');
+            let item=cart.find(x=>x.id==id);
+
+            if(item) item.qty++;
+            else{
+                cart.push({
+                    id:id,
+                    name:$(this).data('name'),
+                    price:parseInt($(this).data('price')),
+                    qty:1
+                });
+            }
+
+            render();
+        });
+
+        $(document).on('click','.plus',function(){
+            let item=cart.find(x=>x.id==$(this).data('id'));
+            item.qty++;
+            render();
+        });
+
+        $(document).on('click','.minus',function(){
+            let item=cart.find(x=>x.id==$(this).data('id'));
+            item.qty--;
+            if(item.qty<=0)
+                cart=cart.filter(x=>x.id!=item.id);
+            render();
+        });
+
+        $(document).on('click','.remove',function(){
+            let id=$(this).data('id');
+            cart=cart.filter(x=>x.id!=id);
+            render();
+        });
+
+        $('#btnPayNow').click(function(){
+
+            if(cart.length===0){
+                alert('Cart Empty');
+                return;
+            }
+
+            let subtotal=cart.reduce((a,b)=>a+(b.price*b.qty),0);
+            let tax=subtotal*0.11;
+            let total=subtotal+tax;
+
+            let html='';
+            html += '<p><strong>Payment :</strong> '+$('#paymentMethod').val()+'</p><hr>';
+
+            cart.forEach(x=>{
+                html += '<div>'+x.name+' x '+x.qty+'</div>';
+            });
+
+            html += '<hr><strong>Total : '+rupiah(total)+'</strong>';
+
+            $('#receiptContent').html(html);
+
+            new bootstrap.Modal(document.getElementById('receiptModal')).show();
+        });
+
+        $('#receiptModal').on('hidden.bs.modal',function(){
+            cart=[];
+            render();
+        });
+
+        $(function(){
+            render();
+        });
     </script>
 }
