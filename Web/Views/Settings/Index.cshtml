@@ -1,0 +1,175 @@
+﻿@{
+    ViewData["Title"] = "Settings";
+    ViewData["PageTitle"] = "Settings";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row">
+
+    <div class="col-lg-8">
+
+        <div class="card border-0 shadow-sm">
+
+            <div class="card-header bg-white">
+
+                <h5 class="mb-0">
+                    Store Information
+                </h5>
+
+            </div>
+
+            <div class="card-body">
+
+                <form>
+
+                    <div class="mb-3">
+
+                        <label class="form-label">
+                            Store Name
+                        </label>
+
+                        <input type="text"
+                               class="form-control"
+                               value="One Stack Coffee Shop">
+
+                    </div>
+
+                    <div class="mb-3">
+
+                        <label class="form-label">
+                            Store Address
+                        </label>
+
+                        <textarea class="form-control"
+                                  rows="3">Jl. Raya Pasuruan No. 123</textarea>
+
+                    </div>
+
+                    <div class="row">
+
+                        <div class="col-md-6">
+
+                            <div class="mb-3">
+
+                                <label class="form-label">
+                                    Phone Number
+                                </label>
+
+                                <input type="text"
+                                       class="form-control"
+                                       value="081234567890">
+
+                            </div>
+
+                        </div>
+
+                        <div class="col-md-6">
+
+                            <div class="mb-3">
+
+                                <label class="form-label">
+                                    Email
+                                </label>
+
+                                <input type="email"
+                                       class="form-control"
+                                       value="admin@onestack.com">
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <button class="btn btn-primary">
+
+                        Save Store Information
+
+                    </button>
+
+                </form>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="col-lg-4">
+
+        <div class="card border-0 shadow-sm">
+
+            <div class="card-header bg-white">
+
+                <h5 class="mb-0">
+                    POS Configuration
+                </h5>
+
+            </div>
+
+            <div class="card-body">
+
+                <form>
+
+                    <div class="mb-3">
+
+                        <label class="form-label">
+                            Tax Percentage
+                        </label>
+
+                        <input type="number"
+                               class="form-control"
+                               value="11">
+
+                    </div>
+
+                    <div class="mb-3">
+
+                        <label class="form-label">
+                            Currency
+                        </label>
+
+                        <select class="form-select">
+
+                            <option selected>
+                                IDR (Rp)
+                            </option>
+
+                            <option>
+                                USD ($)
+                            </option>
+
+                            <option>
+                                SGD ($)
+                            </option>
+
+                        </select>
+
+                    </div>
+
+                    <div class="mb-3">
+
+                        <label class="form-label">
+                            Receipt Footer
+                        </label>
+
+                        <textarea class="form-control"
+                                  rows="4">Thank You For Shopping With Us</textarea>
+
+                    </div>
+
+                    <button class="btn btn-success w-100">
+
+                        Save Configuration
+
+                    </button>
+
+                </form>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
